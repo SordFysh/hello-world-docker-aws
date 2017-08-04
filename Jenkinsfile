@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     triggers {
-        pollSCM('H/5 * * * *')
+        pollSCM('* * * * *')
     }
 
     tools {
@@ -11,13 +11,13 @@ pipeline {
 
     environment {
         REGISTRY_CREDENTIAL_ID = 'DOCKER_REGISTRY_CREDENTIALS'
-        GIT_URL = 'git@github.com:simoncomputing/hello-world-docker-aws.git'
+        GIT_URL = 'git@github.com:SordFysh/hello-world-docker-aws.git'
         AWS_REGION = 'us-east-1'
         DOCKER_REGISTRY = 'https://index.docker.io/v1/'
         ECS_CLUSTER_NAME = 'hello-world'
 
         // look in 'CloudFormation' -> 'Output' tab for "DefaultTarget" and "ServiceRole"
-        DEFAULT_TARGET = 'arn:aws:elasticloadbalancing:us-east-1:487471999079:targetgroup/default/8eab6a3694cef2e2'
+        DEFAULT_TARGET = 'arn:aws:elasticloadbalancing:us-east-1:487471999079:targetgroup/default/828cd143a5e1baf3'
         SERVICE_ROLE = 'ecs-service-EcsClusterStack'
     }
 
